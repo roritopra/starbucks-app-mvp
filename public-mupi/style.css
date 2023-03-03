@@ -95,3 +95,13 @@ body {
  .img-pantalla {
     width: 680px;
  } 
+
+ #boton-pantalla1, #boton-pantalla2, #boton-pantalla3, #boton-pantalla4, #boton-pantalla5{
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    height: 1px;
+    width: 1px;
+    color: #3498db;
+    font-size: 1.5em;
+ }
