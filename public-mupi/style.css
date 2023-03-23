@@ -2,14 +2,21 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-color: #00704A;
+    border-color: #00704A;
 }
 
 body {
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     background-color: #00704A;
-    align-items: center;
 }
 
 .container {
@@ -95,3 +102,8 @@ body {
  .img-pantalla {
     width: 680px;
  } 
+
+#pantalla4 .pantalla .activa {
+    display: flex;
+    flex-direction: column;
+ }

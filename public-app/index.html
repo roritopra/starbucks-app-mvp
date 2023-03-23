@@ -28,13 +28,20 @@
 
         <div id="pantalla3" class="pantalla">
             <img src="./images/play.png" alt="">
-            <button class="button3" id="boton-pantalla4" style="display: none;">CONTINUE</button>
+            <button class="button3" id="boton-pantalla4"></button>
             <button class="miBoton">JUMP</button>
         </div>
         
         <div id="pantalla4" class="pantalla">
-            <img src="./images/instruction.png" alt="">
-            <button class="button4" id="boton-pantalla5">CONTINUE</button>
+            <div class="pantalla4-content">
+                <input class="input-nombre" id="nombre" type="text" placeholder="Name">
+                <input class="input-celular" id="celular" type="text" placeholder="Phone">
+                <input class="input-email" id="email" type="text" placeholder="Email">
+            </div>
+            <div>
+                <button class="boton-guardarInput" onclick=guardarInput()> Guardar</button>
+                <button class="botonesconder" id="boton-pantalla5"></button>
+            </div>
         </div>
 
     </div>

@@ -1,7 +1,12 @@
 const NGROK = `${window.location.hostname}`;
 //const NGROK = `https://${window.location.hostname}`;
 //let socket = io(`${window.location.hostname}:5050`, { path: '/real-time' }); 
-let socket = io(NGROK, { path: '/real-time' });
+
+/**    Correr en localhost    */
+let socket = io();
+
+/**    Correr en Ngrok    */
+//let socket = io(NGROK, { path: '/real-time' });
 console.log('Server IP: ', NGROK);
 
 
@@ -44,7 +49,7 @@ function mostrarPantalla(numPantalla) {
 //****** GAME LOOP, Inician el juego cuando todas las imagenes se hayan cargado y programa la funcion update pa que se llame ********//
 
 var time = new Date();
-var deltaTime = 0;
+var deltaTime = 1000;
 
 if(document.readyState === "complete" || document.readyState === "interactive"){
     setTimeout(Init, 1);
@@ -59,7 +64,7 @@ function Init() {
 }
 
 function Loop() {
-    deltaTime = (new Date() - time) / 1000;
+    deltaTime = (new Date() - time) / 1500;
     time = new Date();
     update();
     requestAnimationFrame(Loop);
@@ -237,6 +242,8 @@ function IsCollision(a, b, paddingTop, paddingRight, paddingBottom, paddingLeft)
 function  GameOver() {
     shock();
     gameOver.style.display = "block";
+    mostrarPantalla(4);
+    socket.emit('display-change-screen', 4);
 }
 
 

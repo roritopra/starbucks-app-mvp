@@ -17,12 +17,18 @@ const httpServer = app.listen(PORT, () => {
 });
 // Run on terminal: ngrok http 5050;
 
-const ioServer = new Server(httpServer, { path: '/real-time' });
+/**    Correr en localhost    */
+const ioServer = new Server(httpServer);
+
+/**    Correr en Ngrok    */
+//const ioServer = new Server(httpServer, { path: '/real-time' });
 
 app.post('/user', (request, response) => {
+    console.log('----- USER -----');
     console.log(request.body);
     response.end();
 })
+ 
 //Donde epieza a funcionar la definicion de socket
 ioServer.on('connection',(socket) =>{
     console.log(socket.id);
@@ -34,13 +40,18 @@ ioServer.on('connection',(socket) =>{
 
 ioServer.on('connection', function(socket) {
     socket.on('eventoDeClick', function(salta) { 
-      console.log("-------------Recibido---------");
-      console.log(salta, typeof salta);
       socket.broadcast.emit('display-salto', salta);
     });
     socket.on('controller-change-screen', function(screen) {
+        console.log("-------------  Recibido controller-change-screen  ---------");
+        console.log(screen, typeof screen);
         socket.broadcast.emit('change-display-screen', screen);
-      });
-  });
+    });
+    socket.on('display-change-screen', function(screen) {
+        console.log("-------------  Recibido controller-change-screen  ---------");
+        console.log(screen, typeof screen);
+        socket.broadcast.emit('change-controller-screen', screen);
+    });
+});
 
 

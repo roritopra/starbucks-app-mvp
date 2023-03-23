@@ -1,6 +1,13 @@
 const NGROK = `${window.location.hostname}`;
 console.log('Server IP: ', NGROK);
-let socket = io(NGROK, { path: '/real-time' });
+
+/**    Correr en localhost    */
+let socket = io();
+
+/**    Correr en Ngrok    */
+//let socket = io(NGROK, { path: '/real-time' });
+
+let myInfo;
 
 // Obtener los botones
 var botonPantalla2 = document.getElementById("boton-pantalla2");
@@ -61,6 +68,10 @@ buttonJump.addEventListener('mouseup', ()=> {
   socket.emit('eventoDeClick', salta);
 });
 
+socket.on('change-controller-screen', (msg) => {
+  mostrarPantalla(msg);
+});
+
 //Cambio pantallas emit
 function changeDisplayScreen(target) {
   socket.emit('controller-change-screen', target);
@@ -92,4 +103,25 @@ btnPantalla2.addEventListener('click'), ()=> {
 }
 */
 
+function guardarInput() {
+  const name = document.getElementById("nombre")?.value
+  const phone = document.getElementById("celular")?.value
+  const email = document.getElementById("email")?.value
 
+  myInfo = {
+    nombre: name,
+    celular: phone,
+    email: email 
+  }
+
+  fetch('/user', {
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(myInfo)
+  })
+    .then(() => window.alert('Información subida'));
+  console.log(myInfo)
+}
