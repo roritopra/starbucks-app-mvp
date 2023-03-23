@@ -38,6 +38,20 @@ body {
     position: relative;
 }
 
+.button3 {
+    position: absolute;
+    right: 56px;
+    top: 506px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    height: 120px;
+    width: 200px;
+    color: #3498db;
+    font-size: 1.5em;
+    
+}
+
 .button2 {
     position: absolute;
     right: 30px;
@@ -114,6 +128,8 @@ body {
    .button3:active {
     background-color: #87dbd0;
    }
+
+
 
 
    .button4 {
