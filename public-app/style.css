@@ -258,13 +258,84 @@ img {
     margin-right: auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-top: 250px;
+    width: 250px;
+    height: 250px;
+    border-radius: 30px;
+    border: 1px dashed #106E33;
+    background-color: #EEF4F1;
    }
 
-   #celular.input-celular{
-    width: 100%;
+   .save-button {
+    margin-top: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
    }
-
+   
    .boton-guardarInput{
-    width: 30px;
-    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 28px 56px;
+    gap: 8px;
+    width: 249px;
+    height: 47px;
+    background: linear-gradient(90deg, #377654 0%, #DAE6E0 100%);
+    border-radius: 50.27px;
+    border: none;
+    color: white;
+    cursor: pointer;
    }
+
+   .form {
+    width: 300px;
+    height: 649.225px;
+    background-image: url(./images/forms.png);
+    background-position: center;
+    background-size: contain;
+    }
+
+    .forms {
+        margin-top: 250px;
+        width: 250px;
+        height: 250px;
+        border-radius: 30px;
+        border: 1px dashed #106E33;
+        background-color: #EEF4F1;
+    }
+
+    .input-nombre {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        height: 0;
+        width: 155px;
+        background: #F9F9FF;
+        border-radius: 20px;
+        border: 0.5px solid #106E33;
+        padding: 14px 24px 14px 24px;
+        color: #106E33;
+    }
+
+    .input-celular {
+        margin-bottom: 40px;
+        height: 0;
+        width: 155px;
+        background: #F9F9FF;
+        border-radius: 20px;
+        border: 0.5px solid #106E33;
+        padding: 14px 24px 14px 24px;
+        color: #106E33;
+    }
+
+    .input-email {
+        height: 0;
+        width: 155px;
+        background: #F9F9FF;
+        border-radius: 20px;
+        border: 0.5px solid #106E33;
+        padding: 14px 24px 14px 24px;
+        color: #106E33;
+        margin-bottom: 40px;
+    }
